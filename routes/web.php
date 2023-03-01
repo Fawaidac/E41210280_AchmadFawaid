@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Backend\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -37,6 +37,12 @@ Route::get('/user',[RouteController::class,'index'])->name('user');
 // Route::namespace('Frontend')->group(function () {
 //     Route::get('/home', 'HomeController@index');
 // });
-
+Route::get('/register', function () {
+    return view('auth.register');
+});
+Route::get('/dashboard', function () {
+    return view('backend.app');
+});
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
 
